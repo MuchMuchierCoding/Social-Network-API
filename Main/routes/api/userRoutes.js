@@ -7,7 +7,7 @@ const {
   deleteOneUser,
   addFriend,
   deleteFriend,
-} = require('../../controllers/thoughtsController.js');
+} = require('../../controllers/userController.js');
 
 
 router.route('/')
