@@ -24,7 +24,7 @@ module.exports = {
   },
 
   //Get thought through id 
-  getById(req, res) {
+  getThoughtById(req, res) {
     Thought.findOne({_id: req.params.userId})
         .select('-__v')
         .then(async (thought) =>
@@ -36,7 +36,7 @@ module.exports = {
   },
   
   //Update thought through id
-  updateOne(req, res) {
+  updateOneThought(req, res) {
       Thought.updateOne(
         {_id: req.params.userId},
         {$set: req.body},
@@ -79,8 +79,8 @@ module.exports = {
 
   
   //Delete reaction
-  deleteFriend(req, res) {
-    Thought.updateDeleteFriend(
+  deleteReaction(req, res) {
+    Thought.findOneAndUpdate(
       { _id: req.params.userId},
       { $pull: { friends: req.params.friendId}},
       { runValidators: true, new: true}

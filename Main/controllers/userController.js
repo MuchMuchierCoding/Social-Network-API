@@ -21,7 +21,7 @@ module.exports = {
   },
 
   //Get user through id 
-  getById(req, res) {
+  getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
       .populate('thoughts')
       .populate('friends')
