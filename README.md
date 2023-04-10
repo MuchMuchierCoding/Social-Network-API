@@ -21,6 +21,8 @@ The user should clone the repo and run `npm run start` in the command-line.
 Once the user has cloned the repo and run `npm run start` in the command-line, the user will be able to view, update, add, and delete users, friends, thoughts, and reactions. 
 
 ## Credits
+
+Thanks to tutors, TA's, and Learning Assistants through University of Utah Coding Bootcamp for their help with this challenge. 
  
 [Amanda Paul](#https://github.com/MuchMuchierCoding) 
 
