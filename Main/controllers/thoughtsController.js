@@ -25,7 +25,7 @@ module.exports = {
 
   //Get thought through id 
   getThoughtById(req, res) {
-    Thought.findOne({_id: req.params.userId})
+    Thought.findOne({_id: req.params.thoughtId})
         .select('-__v')
         .then(async (thought) =>
             !thought
@@ -38,7 +38,7 @@ module.exports = {
   //Update thought through id
   updateOneThought(req, res) {
       Thought.updateOne(
-        {_id: req.params.userId},
+        {_id: req.params.thoughtId},
         {$set: req.body},
         {runValidators: true, new: true}
       )
@@ -52,7 +52,7 @@ module.exports = {
 
   //Delete thought through id
   deleteOneThought(req, res) {
-      Thought.deleteOne({ _id: req.params.userId})
+      Thought.deleteOne({ _id: req.params.thoughtId})
       .then((thought) =>
         !thought
         ? res.status(404).json({message: 'No user found with that ID'})
@@ -65,7 +65,7 @@ module.exports = {
   //Add reaction 
   addReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId},
+      { _id: req.params.userId},
       { $addToSet: {reactions: req.body}},
       { runValidators: true, new: true}
     )
@@ -81,7 +81,7 @@ module.exports = {
   //Delete reaction
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId},
+      { _id: req.params.userId},
       { $pull: { friends: req.params.friendId}},
       { runValidators: true, new: true}
     )
